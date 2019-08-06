@@ -1,14 +1,332 @@
-<!DOCTYPE html>
-<html lang="en">
 
   <head>
-    <meta charset="UTF-8" />
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <link type="text/css" rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous"
+    />
+
+    <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Wanderboot</title>
   </head>
-  <body>
-    <h1>Hello World!</h1>
+
+  <body id="home" class="scrollspy">
+    <!--Navbar-->
+    <div class="navbar-fixed">
+      <nav class="cyan darken-1">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="#home" class="brand-logo">Wanderboot</a>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+              <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#icons">Explore</a></li>
+              <li><a href="#popular">Popular Places</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <ul class="sidenav" id="mobile-nav">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#icons">Explore</a></li>
+      <li><a href="#popular">Popular Places</a></li>
+    </ul>
+
+    <!-- Section 1-->
+    <section class="slider">
+      <ul class="slides">
+        <li>
+          <img src="images/vacaymode1.png" alt="" />
+          <div class="caption center-align">
+            <h2>Take Your Dream Vacation</h2>
+            <h5 class="light grey-text text-lighten-3 hide-on-small-only">
+              Experience. Tourism. These are as education in themselves
+            </h5>
+          </div>
+        </li>
+        <li>
+          <img src="images/vacaymode2.png" alt="" />
+          <div class="caption right-align">
+            <h2>What are you waiting for?</h2>
+            <h5 class="light grey-text text-lighten-3 hide-on-small-only">
+              Adventures are to the adventurous.
+            </h5>
+          </div>
+        </li>
+        <li>
+          <img src="images/vacaymode3.png" alt="" />
+          <div class="caption left-align">
+            <h2>Make some memories</h2>
+            <h5 class="light grey-text text-lighten-3 hide-on-small-only">
+              Travel to make memories all around the world.
+            </h5>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 2 -->
+    <section
+      id="search"
+      class="section section-search cyan darken-3 white-text center scrollspy"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col s12">
+            <h3>Where do you want to go?</h3>
+            <div class="input-field">
+              <input
+                type="text"
+                class="white grey-text autocomplete"
+                placeholder="barbados, bahamas, etc..."
+                id="autocomplete-input"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="icons" class="section section-icons grey lighten-4 center">
+      <div class="container">
+        <h4 class="center cyan-text text-darken-3 ">Explore</h4>
+        <div class="row">
+          <div class="col s12 m4">
+            <a href="#" class="black-text" target="_blank">
+              <div class="card-panel">
+                <i class="material-icons large cyan-text text-darken-3"
+                  >airplanemode_active</i
+                >
+                <h4>Fly Cheap</h4>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Sapiente, commodi.
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="col s12 m4">
+            <a href="#" class="black-text" target="_blank">
+              <div class="card-panel">
+                <i class="material-icons large cyan-text text-darken-3"
+                  >hotel</i
+                >
+                <h4>Cheap Hotels</h4>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Sapiente, commodi.
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="col s12 m4">
+            <a href="#" class="black-text" target="_blank">
+              <div class="card-panel">
+                <i class="material-icons large cyan-text text-darken-3">list</i>
+                <h4>Things to Do</h4>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Sapiente, commodi.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section id="popular" class="section section-popular scrollspy">
+      <div class="container">
+        <div class="row">
+          <h4 class="center">
+            <span class="cyan-text text-darken-3">Popular</span> Attractions
+          </h4>
+          <div class="col s12 m4">
+            <div class="card small">
+              <div class="card-image">
+                <img src="images/poland.png" alt="" />
+                <span class="card-title">Baroque Warsaw</span>
+              </div>
+              <div class="card-content">
+                <p class="cyan-text text-darken-1">Poland, Warsaw</p>
+                <p>
+                  Poland's Baroque emphasized the richness and triumphant power
+                  of contemporary art forms.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m4">
+            <div class="card small">
+              <div class="card-image">
+                <img src="images/osaka.png" alt="" />
+                <span class="card-title">Osaka Castle</span>
+              </div>
+              <div class="card-content">
+                <p class="cyan-text text-darken-1">Osaka, Japan</p>
+                <p>
+                  It is a popular spot during festival seasons, and especially
+                  during the cherry blossom bloom
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m4">
+            <div class="card small">
+              <div class="card-image">
+                <img src="images/barcelona.png" alt="" />
+                <span class="card-title">La Sagrada Familia</span>
+              </div>
+              <div class="card-content">
+                <p class="cyan-text text-darken-1">Barcelona, Spain</p>
+                <p>
+                  The Sagrada Família is a one-of-a-kind temple, for its
+                  origins, foundation and purpose.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m4">
+            <div class="card small">
+              <div class="card-image">
+                <img src="images/netherland.png" alt="" />
+                <span class="card-title">Station Utrecht Centraal</span>
+              </div>
+              <div class="card-content">
+                <p class="cyan-text text-darken-1">Utrecht, Netherlands</p>
+                <p>
+                  It is the largest and busiest railway station in the
+                  Netherlands with sixteen platform tracks
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m4">
+            <div class="card small">
+              <div class="card-image">
+                <img src="images/prague.png" alt="" />
+                <span class="card-title">Charles Bridge</span>
+              </div>
+              <div class="card-content">
+                <p class="cyan-text text-darken-3">Prague, Czech Republic</p>
+                <p>
+                  Charles Bridge is a historic bridge that crosses the Vltava
+                  river in Prague, Czech Republic
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m4">
+            <div class="card small">
+              <div class="card-image">
+                <img src="images/vacaymode3.png" alt="" />
+                <span class="card-title">Gardens By The Bay East</span>
+              </div>
+              <div class="card-content">
+                <p class="cyan-text text-darken-3">Singapore</p>
+                <p>
+                  Gardens by the Bay is a nature park spanning 101 hectares of
+                  reclaimed land in the Central Region of Singapore
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section cyan darken-3 white-text center">
+      <div class="row">
+        <div class="col s6">
+          <h6>Download Wanderboot</h6>
+          <ul>
+            <li><a href="#" class="white-text">App Store</a></li>
+            <li><a href="#" class="white-text">Google Play</a></li>
+          </ul>
+        </div>
+        <div class="col s6">
+          <h6>Where to find Us</h6>
+          <a href="https://facebook.com" target="_blank" class="white-text">
+            <i class="fab fa-facebook fa-2x"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" class="white-text">
+            <i class="fab fa-twitter fa-2x"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="white-text">
+            <i class="fab fa-linkedin fa-2x"></i>
+          </a>
+          <a href="https://googleplus.com" target="_blank" class="white-text">
+            <i class="fab fa-google-plus fa-2x"></i>
+          </a>
+          <a href="https://pinterest.com" target="_blank" class="white-text">
+            <i class="fab fa-pinterest fa-2x"></i>
+          </a>
+        </div>
+        <div class="col s12"><h6>Wanderboot &copy; 2018</h6></div>
+      </div>
+    </footer>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO0c2W52K_QkDPRw6Qj53I21xR7ZTKOAM'&libraries=places"
+    ></script>
+    <script>
+      const sideNav = document.querySelector(".sidenav");
+      M.Sidenav.init(sideNav, {});
+
+      // Slider
+      const slider = document.querySelector(".slider");
+      M.Slider.init(slider, {
+        indicators: false,
+        height: 400,
+        transition: 400,
+        interval: 6000
+      });
+
+      //autocomplete
+
+      function init() {
+        var input = document.getElementById("autocomplete-input");
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+        google.maps.event.addListener(
+          autocomplete,
+          "place_changed",
+          function() {
+            var place = autocomplete.getPlace();
+            // var lat = place.geometry.location.lat();
+            // var lng = place.geometry.location.lng();
+            // document.getElementById("output").innerHTML =
+            //   "Lat: " + lat + "<br />Lng: " + lng;
+          }
+        );
+      }
+      google.maps.event.addDomListener(window, "load", init);
+    </script>
   </body>
 </html>
 
