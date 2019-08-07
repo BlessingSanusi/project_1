@@ -1,3 +1,5 @@
+var response;
+
 $(document).ready(function() {
 
 //Initialize Firebase
@@ -26,9 +28,12 @@ var config = {
             $.ajax({
                 url:queryURL,
                 method :"GET"
-            }).then(function(response){
-                    var results = response.data;
-                    console.log(results['advisory'])
+            }).then(function(response2){
+                // console.log(response)
+                    
+                    // console.log(results['advisory'])
+                    response = response2;
+                    console.log(response.data[location].advisory)
     
                 })
                 
@@ -38,24 +43,24 @@ var config = {
             getTravelAdvisoryInfo()
 
 
-         function getThingsToDo(){
+        //  function getThingsToDo(){
                        
-            var location = 'GR';
-            var api_key = "775e2f93afmsh982d2aa4d4c5505p181e67jsn80b576927669";
-            var queryURL = "https://api.yelp.com/v3/events/featured" + location ;
+        //     var location = 'GR';
+        //     var api_key = "775e2f93afmsh982d2aa4d4c5505p181e67jsn80b576927669";
+        //     var queryURL = "https://api.yelp.com/v3/events/featured" + location ;
 
-            $.ajax({
-                url:queryURL,
-                method :"GET"
-            }).then(function(response){
-                    var results = response.data;
-                    console.log(results['advisory'])
+        //     $.ajax({
+        //         url:queryURL,
+        //         method :"GET"
+        //     }).then(function(response){
+        //             var results = response.data;
+        //             console.log(results['advisory'])
     
-                })
+        //         })
 
 
 
-         }//end getThingsToDo function
+        //  }//end getThingsToDo function
 
 
 
