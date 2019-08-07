@@ -6,14 +6,18 @@ body {
   margin-top: 20px;
 }
 
-.section-search input {
+.select-field {
+  width: 100%;
+}
+
+/* .section-search input {
   padding: 5px !important;
   font-size: 18px !important;
   width: 100%;
   display: inline-block;
   border: #f4f4f4 3px solid !important;
   border-radius: 25px !important;
-}
+} */
 
 /* .card-image {
   height: 400px !important;
@@ -38,4 +42,46 @@ body {
 
 .ap-dropdown-menu .ap-with-places {
   color: #000 !important;
+}
+
+select {
+  display: unset;
+}
+
+.btn {
+  text-align: center !important;
+  margin-left: 45%;
+  /* margin-right: 50%; */
+}
+
+#travel-info,
+#info {
+  /* background-color: #494e6b;
+  color: white; */
+
+  padding: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/* .ui-accordion-header {
+  color: #bf360c;
+} */
+.ui-accordion-header {
+  background: #f5f5f5;
+}
+
+.ui-accordion-header.ui-state-active {
+  background: #bf360c;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  border: none;
+}
+
+.slider .slides li {
+  background: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100%;
 }
