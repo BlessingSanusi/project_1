@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   $("#icons").hide();
   $("#travel-info").hide();
