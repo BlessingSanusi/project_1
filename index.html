@@ -1,4 +1,4 @@
-
+<html>
   <head>
     <!--Import Google Icon Font-->
     <link
@@ -103,22 +103,18 @@
             <h3 class="center white-text ">
               Where do you want to go?
             </h3>
-            <div class="input-field">
-              <input
-                type="text"
-                class="white grey-text autocomplete"
-                placeholder="barbados, bahamas, etc..."
-                id="autocomplete-input"
-              />
-            </div>
+
+            <select class="form-control text-dark" title="Select Country" id="dropDownCountry"></select>
+
+
             <div class="row">
-              <!-- <button
-                class="btn btn-large waves-effect waves-light cyan-text accent-3"
+              <button
+                class="btn btn-large waves-effect waves-light white-text cyan accent-3"
                 type="submit"
                 name="action"
               >
                 Submit
-              </button> -->
+              </button> 
             </div>
           </div>
         </div>
@@ -319,24 +315,27 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
 
     <script>
-      /*
-      const sideNav = document.querySelector(".sidenav");
-      M.Sidenav.init(sideNav, {});
-
-      // Slider
-      const slider = document.querySelector(".slider");
-      M.Slider.init(slider, {
-        indicators: false,
-        height: 400,
-        transition: 400,
-        interval: 6000
-      });
-
-      //autocomplete
-
-    </script>
+        const sideNav = document.querySelector(".sidenav");
+        M.Sidenav.init(sideNav, {});
+        // Slider
+        const slider = document.querySelector(".slider");
+        M.Slider.init(slider, {
+          indicators: false,
+          height: 400,
+          transition: 400,
+          interval: 6000
+        });
+        // //autocomplete
+        // var placesAutocomplete = places({
+        //   appId: "plJ5H9664PB2",
+        //   apiKey: "c61c87c0186cea541ec2dcb31e073a8e",
+        //   container: document.querySelector("#autocomplete-input")
+        // });
+        // placesAutocomplete.on("change", e => console.log(e.suggestion));
+      </script>
    
   </body>
 </html>
