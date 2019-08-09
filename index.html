@@ -1,4 +1,4 @@
-
+<html>
   <head>
     <!--Import Google Icon Font-->
     <link
@@ -10,11 +10,21 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+        <!-- Scripts -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <!-- Firebase References -->
+ <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <!-- stylesheet -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 
     <link
@@ -40,7 +50,7 @@
   <body id="home" class="scrollspy">
     <!--Navbar-->
     <div class="navbar-fixed">
-      <nav class="cyan darken-1">
+      <nav class="blue-grey darken-4">
         <div class="container">
           <div class="nav-wrapper">
             <a href="#home" class="brand-logo">Wanderboot</a>
@@ -49,7 +59,7 @@
             </a>
             <ul class="right hide-on-med-and-down">
               <li><a href="#home">Home</a></li>
-              <li><a href="#icons">Explore</a></li>
+            
               <li><a href="#popular">Popular Places</a></li>
             </ul>
           </div>
@@ -58,7 +68,7 @@
     </div>
     <ul class="sidenav" id="mobile-nav">
       <li><a href="#home">Home</a></li>
-      <li><a href="#icons">Explore</a></li>
+     
       <li><a href="#popular">Popular Places</a></li>
     </ul>
 
@@ -84,7 +94,7 @@
           </div>
         </li>
         <li>
-          <img src="images/vacaymode3.png" alt="" />
+          <img src="images/resort.png" alt="" />
           <div class="caption left-align">
             <h2>Make some memories</h2>
             <h5 class="light grey-text text-lighten-3 hide-on-small-only">
@@ -96,49 +106,81 @@
     </section>
 
     <!-- Section 2 -->
-    <section id="search" class="section section-search cyan darken-3 scrollspy">
+    <section id="search" class="section section-search blue-grey darken-2 scrollspy">
       <div class="container">
         <div class="row">
           <div class="col s12">
-            <h3 class="center white-text ">
+            <h4 class="center white-text ">
               Where do you want to go?
-            </h3>
-            <div class="input-field">
-              <input
-                type="text"
-                class="white grey-text autocomplete"
-                placeholder="barbados, bahamas, etc..."
-                id="autocomplete-input"
-              />
-            </div>
-            <div class="row">
-              <!-- <button
-                class="btn btn-large waves-effect waves-light cyan-text accent-3"
+            </h4>
+          </div>
+            <div class="select-field">
+                    <select class="form-control text-dark" title="Select Country" id="dropDownCountry"></select>
+                    <br><br>
+                    <button
+                    id= "submit"
+                class="btn white-text deep-orange darken-4"
                 type="submit"
                 name="action"
               >
                 Submit
-              </button> -->
+              </button>
             </div>
+            <!-- <div class="row">
+              <button
+                class="btn btn-large waves-effect waves-light white-text cyan accent-3"
+                type="submit"
+                name="action"
+              >
+                Submit
+              </button>
+            </div> -->
           </div>
         </div>
       </div>
     </section>
 
     <!-- Section 3 -->
+    <section id="travel-info">
+        <div class="container">
+ <div class="row">
+                        <div class="country-data s9 m9">
+                            <div id="info">
+                                <div class="country">
+                                    
+                                </div>
+                                <div class="infoContent">
+                                    <div class="allLaw">
+                                        <div class="law"></div>
+                                        <div class="lawData"></div>
+                                </div> <!--all law-->
+                                <div class="travelAD"></div>
+                                <div class="climate"></div>
+                                <div class="safety"></div>
+                                <!-- <div class="allEntry">
+                                    <div class="entry"></div>
+                                    <div class="entryData"></div>
+                                </div> close allEntry -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </section>
+
+    <!-- Section 4 -->
     <section id="icons" class="section section-icons grey lighten-4 center">
       <div class="container">
-        <h4 class="center cyan-text text-darken-3 ">Explore</h4>
+        <h4>Explore</h4>
         <div class="row">
           <div class="col s12 m4">
             <a href="#" class="black-text" target="_blank">
               <div class="card-panel">
-                <i class="material-icons medium  cyan-text accent-3"
+                <i class="material-icons small deep-orange-text darken-4"
                   >airplanemode_active</i
                 >
-                <h4>Fly Cheap</h4>
+                <h4>Flight Deals</h4>
                 <p>
-                  Find affordable one way or round flight tickets to any
+                  Discover affordable flight tickets to any
                   destination
                 </p>
               </div>
@@ -147,7 +189,7 @@
           <div class="col s12 m4">
             <a href="#" class="black-text" target="_blank">
               <div class="card-panel">
-                <i class="material-icons medium cyan-text accent-3">hotel</i>
+                <i class="material-icons small  deep-orange-text darken-4">hotel</i>
                 <h4>Cheap Hotels</h4>
                 <p>
                   Discover a hotel that defines a new dimension of luxury
@@ -158,7 +200,7 @@
           <div class="col s12 m4">
             <a href="#" class="black-text" target="_blank">
               <div class="card-panel">
-                <i class="material-icons medium cyan-text accent-3">list</i>
+                <i class="material-icons small  deep-orange-text darken-4">list</i>
                 <h4>Things to Do</h4>
                 <p>
                   Explore different events, nightlife, music going on around the
@@ -171,12 +213,12 @@
       </div>
     </section>
 
-    <!-- Section 4 -->
+    <!-- Section 5 -->
     <section id="popular" class="section section-popular scrollspy">
       <div class="container">
         <div class="row">
           <h4 class="center">
-            <span class="cyan-text text-darken-4">Popular</span> Destinations
+           Popular Destinations
           </h4>
           <div class="col s12 m4">
             <div class="card small">
@@ -185,7 +227,7 @@
                 <span class="card-title">Baroque Warsaw</span>
               </div>
               <div class="card-content">
-                <p class="cyan-text text-darken-1">Poland, Warsaw</p>
+                <p class=" deep-orange-text text-darken-4">Poland, Warsaw</p>
                 <p>
                   Baroque emphasized the richness and triumphant power of
                   contemporary art forms.
@@ -200,7 +242,7 @@
                 <span class="card-title">Osaka Castle</span>
               </div>
               <div class="card-content">
-                <p class="cyan-text text-darken-1">Osaka, Japan</p>
+                <p class="deep-orange-text text-darken-4">Osaka, Japan</p>
                 <p>
                   It is a popular spot during festival seasons, and especially
                   during the cherry blossom bloom
@@ -215,7 +257,7 @@
                 <span class="card-title">La Sagrada Familia</span>
               </div>
               <div class="card-content">
-                <p class="cyan-text text-darken-1">Barcelona, Spain</p>
+                <p class="deep-orange-text text-darken-4">Barcelona, Spain</p>
                 <p>
                   The Sagrada Família is a one-of-a-kind temple, for its
                   origins, foundation and purpose.
@@ -232,7 +274,7 @@
                 <span class="card-title">Station Utrecht Centraal</span>
               </div>
               <div class="card-content">
-                <p class="cyan-text text-darken-1">Utrecht, Netherlands</p>
+                <p class="deep-orange-text text-darken-4">Utrecht, Netherlands</p>
                 <p>
                   It is the largest and busiest railway station in the
                   Netherlands with sixteen platform tracks
@@ -247,7 +289,7 @@
                 <span class="card-title">Charles Bridge</span>
               </div>
               <div class="card-content">
-                <p class="cyan-text text-darken-3">Prague, Czech Republic</p>
+                <p class="deep-orange-text text-darken-4">Prague, Czech Republic</p>
                 <p>
                   Charles Bridge is a historic bridge that crosses the Vltava
                   river in Prague, Czech Republic
@@ -262,7 +304,7 @@
                 <span class="card-title">Gardens By The Bay East</span>
               </div>
               <div class="card-content">
-                <p class="cyan-text text-darken-3">Singapore</p>
+                <p class="deep-orange-text text-darken-4">Singapore</p>
                 <p>
                   The garden is a nature park spanning 101 hectares of reclaimed
                   land in Singapore
@@ -275,26 +317,26 @@
     </section>
 
     <!-- Footer -->
-    <footer class="section cyan darken-3 white-text center">
+    <footer class="section blue-grey darken-4 white-text center">
       <div class="row">
-        <div class="col s4">
-          <h6>Download Wanderboot</h6>
+        <div class="col s12 m4 l4">
+          <h6 class="deep-orange-text darken-4">Download Wanderboot</h6>
           <ul>
             <li><a href="#" class="white-text">App Store</a></li>
             <li><a href="#" class="white-text">Google Play</a></li>
             <li><a href="#" class="white-text">Microsoft Store</a></li>
           </ul>
         </div>
-        <div class="col s4">
-          <h6>Explore</h6>
+        <div class="col s12 m4 l4">
+          <h6 class="deep-orange-text darken-4">Explore</h6>
           <ul>
             <li><a href="#" class="white-text">Fly Cheap</a></li>
             <li><a href="#" class="white-text">Cheap Hotels</a></li>
             <li><a href="#" class="white-text">Things To Do</a></li>
           </ul>
         </div>
-        <div class="col s4">
-          <h6>Where to find Us</h6>
+        <div class="col s12 m4 l4">
+          <h6 class="deep-orange-text darken-4">Where to find Us</h6>
           <div class="social-media">
             <a href="https://facebook.com" target="_blank" class="white-text">
               <i class="fab fa-facebook fa-2x"></i>
@@ -318,6 +360,10 @@
     </footer>
 
     <!-- Compiled and minified JavaScript -->
+
+  
+    <script src="javascript/app.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script>
@@ -334,8 +380,7 @@
         interval: 6000
       });
 
-      //autocomplete
-
+      
     </script>
    
   </body>
