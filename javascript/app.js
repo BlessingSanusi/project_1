@@ -1,75 +1,166 @@
+
 $(document).ready(function() {
+  $("#icons").hide();
+  $("#travel-info").hide();
+  //Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB4VocKAGdBV2MOoa4Tlea2kodPc7mg3HQ",
+    authDomain: "travelapp-e9f01.firebaseapp.com",
+    databaseURL: "https://travelapp-e9f01.firebaseio.com",
+    projectId: "travelapp-e9f01",
+    storageBucket: "",
+    messagingSenderId: "986030707385",
+    appId: "1:986030707385:web:0a04b09b94708972"
+  };
 
+  firebase.initializeApp(config);
+  var database = firebase.database();
 
+  var place;
+  var tuGoApiKey = "xspyubpakcte72gaz2tw6qdd";
+  var queryUrl1 = "https://api.tugo.com/v1/travelsafe/countries";
 
-    var config = {
-        apiKey: "AIzaSyB4VocKAGdBV2MOoa4Tlea2kodPc7mg3HQ",
-        authDomain: "travelapp-e9f01.firebaseapp.com",
-        databaseURL: "https://travelapp-e9f01.firebaseio.com",
-        projectId: "travelapp-e9f01",
-        storageBucket: "",
-        messagingSenderId: "986030707385",
-        appId: "1:986030707385:web:0a04b09b94708972"
-    };
-    firebase.initializeApp(config);
-    var database = firebase.database();
-    
-            var place = "New York";
-            var limit = 10
-                var settings = {
-                "url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?location="+place+"&limit="+limit,
-                "method": "GET",
-                "headers": {
-                "Authorization": "Bearer 0RNHafMEpqhc0LGydMyazrFx-E5hu7sAda5jw9c7No27dJA4wtsXxsxHWmtVi7dPa9ewyFHmR24sl4gV_mQw_vpRSEA_XjnXP-rz77HxPd02FdwmRtfDuxSybF1MXXYx",
-                }
-            }
-            
-            $.ajax(settings).then(function (response) {
-                console.log(response);
-                console.log(response.events[0]);
-            });
+  //tuGo AJAX call to populate drop down country options
+  $.ajax({
+    url: queryUrl1,
+    method: "GET",
+    headers: {
+      "X-Auth-API-Key": "xspyubpakcte72gaz2tw6qdd"
+    }
+  }).then(function(response) {
+    console.log(response);
 
-}); //end document.reapdy
+    var dropdown = document.getElementById("dropDownCountry");
+    dropdown.length = 0;
 
+    let defaultOption = document.createElement("option");
+    defaultOption.text = "Choose Country";
 
-// {
-//     "events": [
-//         {
-//             "attending_count": 1,
-//             "category": "other",
-//             "cost": null,
-//             "cost_max": null,
-//             "description": "THIS EVENT IS FULL TO CAPACITY!  WE ARE NO LONGER ACCEPTING RSVPs.  ABSOLUTELY NO WALK-INS!\n\n*****In light of the recent tragedy in Haiti, all funds...",
-//             "event_site_url": "https://www.yelp.com/events/london-yelps-burst-birthday-event-full?adjust_creative=Y_K0fV6ocULU7tdvseG9Mw&utm_campaign=yelp_api_v3&utm_medium=api_v3_event_search&utm_source=Y_K0fV6ocULU7tdvseG9Mw",
-//             "id": "london-yelps-burst-birthday-event-full",
-//             "image_url": "https://s3-media2.fl.yelpcdn.com/ephoto/lSNudwrOHLFqwCP5ZG1QLw/o.jpg",
-//             "interested_count": 337,
-//             "is_canceled": false,
-//             "is_free": true,
-//             "is_official": false,
-//             "latitude": 51.5325189,
-//             "longitude": -0.1049946,
-//             "name": "Yelp's \"Burst\" Birthday - EVENT FULL",
-//             "tickets_url": "",
-//             "time_end": "2010-01-26T22:00:00+00:00",
-//             "time_start": "2010-01-26T20:00:00+00:00",
-//             "location": {
-//                 "address1": "7 Torrens St",
-//                 "address2": "",
-//                 "address3": "",
-//                 "city": "London",
-//                 "zip_code": "EC1V 1NQ",
-//                 "country": "GB",
-//                 "state": "XGL",
-//                 "display_address": [
-//                     "7 Torrens St",
-//                     "London EC1V 1NQ",
-//                     "United Kingdom"
-//                 ],
-//                 "cross_streets": ""
-//             },
-//             "business_id": "islington-metal-works-london"
-//         }
-//     ],
-//     "total": 1
-// }
+    dropdown.appendChild(defaultOption);
+    dropdown.selectedIndex = 0;
+
+    for (var i = 0; i < response.length; i++) {
+      var option = document.createElement("option");
+      option.setAttribute("class", "dropdown-item");
+      option.text = response[i].englishName;
+      option.value = response[i].id;
+      dropdown.appendChild(option);
+    }
+  });
+
+  //Firebase population of country list
+  database
+    .ref("countries")
+    .once("value")
+    .then(function(snapshot) {
+      console.log(snapshot.val());
+      var array = snapshot.val();
+      for (var i = 0; i < array; i++) {
+        console.log(array[i].englishName);
+        var option = document.createElement("option");
+        option.setAttribute("class", "dropdown-item");
+        option.text = array[i].englishName;
+        option.value = array[i].id;
+        dropdown.appendChild(option);
+      }
+    });
+
+  //Grab the selected country
+  $("#submit").on("click", function(event) {
+    event.preventDefault();
+    $("#travel-info").show();
+    $("#info").show();
+    $("#dropDownCountry").tooltip();
+
+    var submitted = $("select#dropDownCountry option:checked").val();
+    console.log(submitted);
+    $.ajax({
+      url: queryUrl1 + "/" + submitted,
+      method: "GET",
+      headers: {
+        "X-Auth-API-Key": "xspyubpakcte72gaz2tw6qdd"
+      }
+    }).then(function(response) {
+      console.log(response);
+
+      var advisories = response.advisories;
+
+      var country = $(".country").html(
+        "<div col='m6'><h5>Country: " + response.name + "<br><br>"
+      );
+      console.log(country);
+
+      $(".country").append(country);
+      console.log(response.lawAndCulture.lawAndCultureInfo);
+
+      $(".law").html("<div><h6>Law and Culture:</h6>");
+
+      var textLawArray = [];
+
+      for (i = 0; i < response.lawAndCulture.lawAndCultureInfo.length; i++) {
+        textLawArray +=
+          "<p>" +
+          response.lawAndCulture.lawAndCultureInfo[i].category +
+          ": " +
+          response.lawAndCulture.lawAndCultureInfo[i].description +
+          "</p>";
+      }
+      $(".lawData").html(textLawArray);
+      $(".allLaw").accordion({
+        collapsible: true,
+        active: false,
+        animate: 300,
+        icons: false
+      });
+
+      $(".travelAD").html(
+        "<h6>Travel Advisories:</h6><p> " +
+          response.advisories.description +
+          "</p>"
+      );
+      $(".travelAD").accordion({
+        collapsible: true,
+        active: false,
+        animate: 300,
+        icons: false
+      });
+
+      if (response.climate.description != null) {
+        $(".climate").html(
+          "<h6>Climate Conditions:</h6><p> " +
+            response.climate.description +
+            "</p>"
+        );
+      } else {
+        $(".climate").html("<h6>Climate Conditions:</h6><p> None </p>");
+      }
+      $(".climate").accordion({
+        collapsible: true,
+        active: false,
+        animate: 300,
+        icons: false
+      });
+
+      if (response.safety.description != null) {
+        $(".safety").html(
+          "<h6>Safety Information:</h6><p> " +
+            response.climate.description +
+            "</p>"
+        );
+      } else {
+        $(".safety").html(
+          "<h6>Safety Information:</h6><p> " +
+            response.safety.safetyInfo[0].description +
+            "</p>"
+        );
+      }
+      $(".safety").accordion({
+        collapsible: true,
+        active: false,
+        animate: 300,
+        icons: false
+      });
+    });
+    $("#icons").show();
+  });
+});
