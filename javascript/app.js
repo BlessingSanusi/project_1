@@ -48,7 +48,7 @@ $(document).ready(function() {
     }
   });
 
-  //Firebase population of country list
+
   database
     .ref("countries")
     .once("value")
@@ -84,6 +84,14 @@ $(document).ready(function() {
       console.log(response);
 
       var advisories = response.advisories;
+      console.log(advisories, advisories.description, 'HFJKDSHAJFKLAHSDFJDKSALHFSADKJFHDJSAKLFHASJFK')
+      console.log($('.travelAD'))
+      
+      $(".travelAD").html(
+        "<h6>Travel Advisories:</h6><p> " +
+          advisories.description +
+          "</p>"
+      );
 
       var country = $(".country").html(
         "<div col='m6'><h5>Country: " + response.name + "<br><br>"
@@ -108,19 +116,14 @@ $(document).ready(function() {
       $(".lawData").html(textLawArray);
       $(".allLaw").accordion({
         collapsible: true,
-        active: false,
+        active: true,
         animate: 300,
         icons: false
       });
 
-      $(".travelAD").html(
-        "<h6>Travel Advisories:</h6><p> " +
-          response.advisories.description +
-          "</p>"
-      );
       $(".travelAD").accordion({
         collapsible: true,
-        active: false,
+        active: true,
         animate: 300,
         icons: false
       });
@@ -136,7 +139,7 @@ $(document).ready(function() {
       }
       $(".climate").accordion({
         collapsible: true,
-        active: false,
+        active: true,
         animate: 300,
         icons: false
       });
@@ -156,7 +159,7 @@ $(document).ready(function() {
       }
       $(".safety").accordion({
         collapsible: true,
-        active: false,
+        active: true,
         animate: 300,
         icons: false
       });
