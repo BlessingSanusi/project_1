@@ -164,3 +164,23 @@ $(document).ready(function() {
     $("#icons").show();
   });
 });
+
+
+//Yelp API
+$("#thingsToDo").on('click', function(){
+        var place = "New York";
+        var limit = 6
+            var settings = {
+                        "url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?location="+place+"&limit="+limit,
+                        "method": "GET",
+                        "headers": {
+                        "Authorization": "Bearer 0RNHafMEpqhc0LGydMyazrFx-E5hu7sAda5jw9c7No27dJA4wtsXxsxHWmtVi7dPa9ewyFHmR24sl4gV_mQw_vpRSEA_XjnXP-rz77HxPd02FdwmRtfDuxSybF1MXXYx",
+                            }
+            }
+        
+        $.ajax(settings).then(function (response) {
+            console.log(response.events[0]);
+        });
+
+  
+})
