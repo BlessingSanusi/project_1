@@ -169,21 +169,69 @@ $(document).ready(function() {
 });
 
 
-//Yelp API
-$("#thingsToDo").on('click', function(){
-        var place = "New York";
-        var limit = 6
-            var settings = {
-                        "url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?location="+place+"&limit="+limit,
-                        "method": "GET",
-                        "headers": {
-                        "Authorization": "Bearer 0RNHafMEpqhc0LGydMyazrFx-E5hu7sAda5jw9c7No27dJA4wtsXxsxHWmtVi7dPa9ewyFHmR24sl4gV_mQw_vpRSEA_XjnXP-rz77HxPd02FdwmRtfDuxSybF1MXXYx",
-                            }
-            }
-        
-        $.ajax(settings).then(function (response) {
-            console.log(response.events[0]);
-        });
+function getThingsToDo() {
 
+  var place = 'New York';
+  var limit = 6;
+
+  var settings = {
+    "url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?location="+place+"&limit="+limit,
+    "method": "GET",
+    "headers": {
+    "Authorization": "Bearer 0RNHafMEpqhc0LGydMyazrFx-E5hu7sAda5jw9c7No27dJA4wtsXxsxHWmtVi7dPa9ewyFHmR24sl4gV_mQw_vpRSEA_XjnXP-rz77HxPd02FdwmRtfDuxSybF1MXXYx"
+        }}
+
+  $.ajax(settings).then(function (response) {
+   
+    var card = "";
+    for(i=0; i<limit; i++){
+      var results = response.events;
+      var event_category = results[i].category;
+      var event_desc = results[i].description;
+      var event_img = results[i].image_url;
+      var event_url = results[i].event_site_url;
   
-})
+      console.log(event_category = results[i].category);
+      console.log(event_desc = results[i].description);
+      console.log(event_img = results[i].image_url);
+      console.log(event_url = results[i].event_site_url);
+
+      card += "<div class='col s12 m6 l4'>" +
+      "<div class='card medium'>" + 
+        "<a href=" + event_url + "class='black-text'"+
+        "<div class='card-image'>" +
+          "<img src=" + event_img + "alt='' />" +
+          "<span class='card-title'></span>" +
+        "</div>" +
+        "<div class='card-content'>" +
+          "<p class='deep-orange-text text-darken-4'>" + event_category + "</p>" +
+          "<p>" + event_desc +
+          "</p>" +
+        "</div>" +
+      "</div>" +
+    "</div>";
+
+    }
+    $("#Events").html(card);
+
+    // var event_Container_Div = $("div");
+    // //var event_Container_Div = document.createElement("div")
+    // event_Container_Div.addClass('col s12 m4');
+
+    // var event_Card_div = $("div class ='card small'");
+    
+    // var event_Img_Div = $("img class = 'card-image'");
+    // event_Img_Div.attr('src', event_img);
+    
+    // var event_Content = $("class='card-content'");
+    // event_Content.html(event_desc);
+
+    // event_Card_div.append(event_Img_Div);
+    // event_Card_div.append(event_Content);
+
+    // $("#Events").appendChild(event_Container_Div);
+
+        }) //end ajax call
+
+} //end getThingsToDo
+ getThingsToDo();
