@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
   $("#icons").hide();
   $("#travel-info").hide();
@@ -93,18 +92,29 @@ $(document).ready(function() {
       $(".country").append(country);
       console.log(response.lawAndCulture.lawAndCultureInfo);
 
-      $(".law").html("<div><h6>Law and Culture:</h6>");
-
-      var textLawArray = [];
-
-      for (i = 0; i < response.lawAndCulture.lawAndCultureInfo.length; i++) {
-        textLawArray +=
+      $(".law").html(
+        "<div><h6>Law and Culture:</h6>" +
           "<p>" +
-          response.lawAndCulture.lawAndCultureInfo[i].category +
-          ": " +
-          response.lawAndCulture.lawAndCultureInfo[i].description +
-          "</p>";
-      }
+          response.lawAndCulture.description +
+          "</p>" +
+          "<p>" +
+          response.lawAndCulture.lawAndCultureInfo[4].description +
+          "</p>" +
+          "<p>" +
+          response.lawAndCulture.lawAndCultureInfo[2].description +
+          "</p>"
+      );
+
+      // var textLawArray = [];
+
+      // for (i = 0; i < response.lawAndCulture.lawAndCultureInfo.length; i++) {
+      //   textLawArray +=
+      //     "<p>" +
+      //     response.lawAndCulture.lawAndCultureInfo[i].category +
+      //     ": " +
+      //     response.lawAndCulture.lawAndCultureInfo[i].description +
+      //     "</p>";
+      // }
       $(".lawData").html(textLawArray);
       $(".allLaw").accordion({
         collapsible: true,
