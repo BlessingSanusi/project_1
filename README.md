@@ -2,10 +2,10 @@
 # project_1
 
 ### Team Members:
--Alan Gomero
--Blessing Sanusi
--Washington
--Cuneyt Cavdaro
+- Alan Gomero
+- Blessing Sanusi
+- Washington
+- Cuneyt Cavdaro
 
 ### Project Description:
 
@@ -17,10 +17,10 @@ Traveling to a new country can be challenging and overwhelming. Finding a  websi
 
 ### Technology/framework:
 
--HTML
--CSS
--Javascript
--JQuery
+- HTML
+- CSS
+- Javascript
+- JQuery
 
 ### New Technology:
 
