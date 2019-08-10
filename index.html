@@ -38,6 +38,13 @@
       integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
       crossorigin="anonymous"></script>   
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+      <!--CDN Sources-CSS-->
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      <!--CDN Sources-JS-->
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <!--AOS End-->
+
       <!-- Firebase References -->
       <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
@@ -122,6 +129,14 @@
             <div class="select-field">
                     <select class="form-control text-dark" title="Select Country" id="dropDownCountry"></select>
                     <br><br>
+                    <form>
+                        <div class="form-row">
+                          <div class="col-4">
+                            <input type="text" class="form-control" id= "inputCity" placeholder="City">
+                          </div>
+                        </div>
+                      </form>
+
                     <button
                     id= "submit"
                 class="btn white-text deep-orange darken-4"
@@ -220,7 +235,7 @@
     </section>
 
         <!-- Section xx-->
-        <section class="section section-popular scrollspy">
+        <section class="section section-things scrollspy">
           <div class="container">
             <div class="row">
               <h4 class="center">
@@ -239,7 +254,11 @@
            Popular Destinations
           </h4>
           <div class="col s12 m4">
-            <div class="card small">
+            <div class="card small" data-aos="fade-right">
+
+         
+
+
               <div class="card-image">
                 <img src="images/poland.png" alt="" />
                 <span class="card-title">Baroque Warsaw</span>
@@ -269,7 +288,7 @@
             </div>
           </div>
           <div class="col s12 m4">
-            <div class="card small">
+            <div class="card small" data-aos="fade-left">
               <div class="card-image">
                 <img src="images/barcelona.png" alt="" />
                 <span class="card-title">La Sagrada Familia</span>
@@ -385,8 +404,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
 
-    <script>
-      
+    <script type='text/javascript'>
+      AOS.init({
+                  offset: -200,
+                  duration: 700,
+              });
       const sideNav = document.querySelector(".sidenav");
       M.Sidenav.init(sideNav, {});
 

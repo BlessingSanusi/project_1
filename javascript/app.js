@@ -2,6 +2,7 @@
 $(document).ready(function() {
   $("#icons").hide();
   $("#travel-info").hide();
+  $('.section-things').hide();
   //Initialize Firebase
   var config = {
     apiKey: "AIzaSyB4VocKAGdBV2MOoa4Tlea2kodPc7mg3HQ",
@@ -165,13 +166,18 @@ $(document).ready(function() {
       });
     });
     $("#icons").show();
+    getThingsToDo();
+
+    $('.section-things').show();
   });
 });
 
 
 function getThingsToDo() {
 
-  var place = 'New York';
+  //var place = $("#inputCity")
+   var place = "New York";
+  console.log(place);
   var limit = 6;
 
   var settings = {
@@ -191,16 +197,16 @@ function getThingsToDo() {
       var event_img = results[i].image_url;
       var event_url = results[i].event_site_url;
   
-      console.log(event_category = results[i].category);
-      console.log(event_desc = results[i].description);
-      console.log(event_img = results[i].image_url);
-      console.log(event_url = results[i].event_site_url);
+      console.log(results[i].category);
+      console.log(results[i].description);
+      console.log( results[i].image_url);
+      console.log(results[i].event_site_url);
 
       card += "<div class='col s12 m6 l4'>" +
-      "<div class='card medium'>" + 
+      "<div class='card small'>" + 
         "<a href=" + event_url + "class='black-text'"+
         "<div class='card-image'>" +
-          "<img src=" + event_img + "alt='' />" +
+          "<img src='" + event_img + "' alt='' />" +
           "<span class='card-title'></span>" +
         "</div>" +
         "<div class='card-content'>" +
@@ -234,4 +240,4 @@ function getThingsToDo() {
         }) //end ajax call
 
 } //end getThingsToDo
- getThingsToDo();
+ 
