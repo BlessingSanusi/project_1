@@ -172,12 +172,17 @@ $(document).ready(function() {
   });
 });
 
+//var place2 = $("#inputCity").val().trim();
+//console.log('place2:'+ place2);
 
 function getThingsToDo() {
 
-  //var place = $("#inputCity")
-   var place = "New York";
+  var place = $("#inputCity").val().trim();
   console.log(place);
+
+   //var place = "Houston";
+  //console.log(place);
+
   var limit = 6;
 
   var settings = {
@@ -204,10 +209,9 @@ function getThingsToDo() {
 
       card += "<div class='col s12 m6 l4'>" +
       "<div class='card small'>" + 
-        "<a href=" + event_url + "class='black-text'"+
         "<div class='card-image'>" +
           "<img src='" + event_img + "' alt='' />" +
-          "<span class='card-title'></span>" +
+          "<span class='card-title'>" + event_category + "</span>" +
         "</div>" +
         "<div class='card-content'>" +
           "<p class='deep-orange-text text-darken-4'>" + event_category + "</p>" +
