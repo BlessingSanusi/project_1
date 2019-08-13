@@ -210,6 +210,7 @@ function getThingsToDo() {
       card += "<div class='col s12 m6 l4'>" +
       "<div class='card small'>" + 
         "<div class='card-image'>" +
+        "<a href=" + event_url + ">" +
           "<img src='" + event_img + "' alt='' />" +
           "<span class='card-title'>" + event_category + "</span>" +
         "</div>" +
