@@ -1,5 +1,5 @@
 body {
-  font-family: "Catamaran", sans-serif !important;
+  font-family: 'Catamaran', sans-serif !important;
 }
 
 .slider .btn {
@@ -10,27 +10,11 @@ body {
   width: 100%;
 }
 
-/* .section-search input {s
-  padding: 5px !important;
-  font-size: 18px !important;
-  width: 100%;
-  display: inline-block;
-  border: #f4f4f4 3px solid !important;
-  border-radius: 25px !important;
-} */
-
-/* .card-image {
-  height: 400px !important;
-  overflow: hidden;
-} */
-
 .social-media a {
   margin: 5px 10px;
 }
 .card-panel {
   border-radius: 25px !important;
-  /* width: 150px !important;
-  height: 150px !important; */
 }
 
 .card-panel h4 {
@@ -88,5 +72,4 @@ select {
 
 .card .card-image img {
   width: 100%;
- 
 }
